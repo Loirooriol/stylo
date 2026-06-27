@@ -615,11 +615,6 @@ impl Animation {
             },
         }
 
-        if let AnimationState::Paused(ref mut progress) = self.state {
-            debug_assert!(*progress > n);
-            *progress -= n;
-        }
-
         // Update the next iteration direction if applicable.
         self.started_at += self.duration * n;
         match self.direction {
